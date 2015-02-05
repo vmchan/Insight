@@ -1,6 +1,7 @@
 import pandas as pd
-import matplotlib as mpl
-import matplotlib.pyplot as plt
+import matplotlib 
+matplotlib.use("Agg")
+from matplotlib import pyplot as plt
 import seaborn as sns
 
 
