@@ -20,9 +20,13 @@
     <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- Load c3.css -->
+    <link href="../static/css/c3.css" rel="stylesheet" type="text/css">
+
+    <!-- Load d3.js and c3.js -->
+    <script src="../static/js/d3.min.js" charset="utf-8"></script>
+    <script src="../static/js/c3.min.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -68,8 +72,8 @@
 
   </div> <!-- /.container-->
 
+<div class="intro-header">
     <div class="container">
-      <div class="intro-header">
         <h2> The probability of NPO {{ npoid }} surviving next year is:</h2>
       
         <h2> {{ score }}%</h2>
@@ -77,65 +81,283 @@
      
 
      </div><!-- /.container -->
-
     <div class="container">
+
       <div class="row">
         
         <div class="col-md-6">
-          <div class= "media">
-            <div class = "media-left">
-              <img class="media-object" src = "{{url_for('return_image',filename='img/npo_total_assets.png')}}" width = "600" height = "450">
-            </div>    
-          </div>
+<h3 align="center"> <span style="color:#0db14b"> Total Revenue </spna></h3>
+        <div id="chart5">
+          <script type="text/javascript">
+          var chart5 = c3.generate({
+          bindto: '#chart5',
+          size: {
+            height: 400,
+            width: 550
+          },
+          data: {
+            x: 'x',
+            columns: [
+              {{ years|tojson }},
+              {{ revenue_total|tojson }}
+            ]
+          },
+          axis: {
+            y: {
+              min:0,
+              label: { // ADD
+                text: 'Total Revenue ($USD)',
+                position: 'outer-middle'
+              }
+            }, 
+            x: {
+              label: { // ADD
+                text: 'Year',
+                position: 'outer-center'
+              }
+            }
+          },
+          legend: {
+            show: false
+          }, 
+          color: {
+            pattern: ['#0db14b']
+          }
+          });
+          </script>
         </div>
 
+
+
+
+       
+        </div>
+      
         <div class="col-md-6">
-          <div class= "media">
-            <div class = "media-left">
-              <img class="media-object" src = "{{url_for('return_image',filename='img/npo_total_expenses.png')}}" width = "600" height = "450">
-            </div>    
-          </div> 
+        <h3 align="center"> <span style="color:#b10d21">Total Expenses </span></h3>
+        <div id="chart2">
+          <script type="text/javascript">
+          var chart2 = c3.generate({
+          bindto: '#chart2',
+          size: {
+            height: 400,
+            width: 550
+          },
+          data: {
+            x: 'x',
+            columns: [
+              {{ years|tojson }},
+              {{ expenses_total|tojson }}
+            ]
+          },
+          axis: {
+            y: {
+              min:0,
+              label: { // ADD
+                text: 'Total Expenses ($USD)',
+                position: 'outer-middle'
+              }
+            }, 
+            x: {
+              label: { // ADD
+                text: 'Year',
+                position: 'outer-center'
+              }
+            }
+          },
+          legend: {
+            show: false
+          }, 
+          color: {
+            pattern: ['#b10d21']
+          }
+          });
+            </script>
+          </div>
         </div>
       </div>
 
       <div class="row">
         
         <div class="col-md-6">
-          <div class= "media">
-            <div class = "media-left">
-              <img class="media-object" src = "{{url_for('return_image',filename='img/npo_gov_grants.png')}}" width = "600" height = "450">
-            </div>    
-          </div> 
+          <h3 align="center"> <span style="color:#0db14b"> Government Grants </spna></h3>
+          <div id="chart3">
+          <script type="text/javascript">
+          var chart3 = c3.generate({
+          bindto: '#chart3',
+          size: {
+            height: 400,
+            width: 550
+          },
+          data: {
+            x: 'x',
+            columns: [
+              {{ years|tojson }},
+              {{ gov_grants|tojson }}
+            ]
+          },
+          axis: {
+            y: {
+              min:0,
+              label: { // ADD
+                text: 'Government Grants ($USD)',
+                position: 'outer-middle'
+              }
+            }, 
+            x: {
+              label: { // ADD
+                text: 'Year',
+                position: 'outer-center'
+              }
+            }
+          },
+          legend: {
+            show: false
+          }, 
+          color: {
+            pattern: ['#0db14b']
+          }
+          });
+          </script>
+          </div>
         </div> 
 
 
         <div class="col-md-6">
-          <div class= "media">
-            <div class = "media-left">
-              <img class="media-object" src = "{{url_for('return_image',filename='img/npo_wages_total.png')}}" width = "600" height = "450">
-            </div>    
-          </div> 
+            <h3 align="center"> <span style="color:#b10d21">Total Wages </span></h3>
+        <div id="chart4">
+          <script type="text/javascript">
+          var chart4 = c3.generate({
+          bindto: '#chart4',
+          size: {
+            height: 400,
+            width: 550
+          },
+          data: {
+            x: 'x',
+            columns: [
+              {{ years|tojson }},
+              {{ wages_total|tojson }}
+            ]
+          },
+          axis: {
+            y: {
+              min:0,
+              label: { // ADD
+                text: 'Total Wages ($USD)',
+                position: 'outer-middle'
+              }
+            }, 
+            x: {
+              label: { // ADD
+                text: 'Year',
+                position: 'outer-center'
+              }
+            }
+          },
+          legend: {
+            show: false
+          }, 
+          color: {
+            pattern: ['#b10d21']
+          }
+          });
+            </script>
+          </div>
+        </div>
         </div> 
       
-      </div> 
+      
 
       <div class="row">
 
         <div class="col-md-6">
-          <div class= "media">
-            <div class = "media-left">
-              <img class="media-object" src = "{{url_for('return_image',filename='img/npo_revenue_total.png')}}" width = "600" height = "450">
-            </div>    
-          </div> 
+           <h3 align="center"> <span style="color:#0db14b"> Total Assets </spna></h3>
+        <div id="chart">
+          <script type="text/javascript">
+          var chart = c3.generate({
+          bindto: '#chart',
+          size: {
+            height: 400,
+            width: 550
+          },
+          data: {
+            x: 'x',
+            columns: [
+              {{ years|tojson }},
+              {{ assets_total|tojson }}
+            ]
+          },
+          axis: {
+            y: {
+              min:0,
+              label: { // ADD
+                text: 'Total Assets ($USD)',
+                position: 'outer-middle'
+              }
+            }, 
+            x: {
+              label: { // ADD
+                text: 'Year',
+                position: 'outer-center'
+              }
+            }
+          },
+          legend: {
+            show: false
+          }, 
+          color: {
+            pattern: ['#0db14b']
+          }
+          });
+          </script>
+        </div>
+          
         </div> 
        
       
         <div class="col-md-6">
-          <div class= "media">
-            <div class = "media-left">
-              <img class="media-object" src = "{{url_for('return_image',filename='img/npo_other_liability.png')}}" width = "600" height = "450">
-            </div>    
-          </div> 
+          <h3 align="center"> <span style="color:#b10d21">Other Liabilities </span></h3>
+        <div id="chart6">
+          <script type="text/javascript">
+          var chart6 = c3.generate({
+          bindto: '#chart6',
+          size: {
+            height: 400,
+            width: 550
+          },
+          data: {
+            x: 'x',
+            columns: [
+              {{ years|tojson }},
+              {{ other_liability|tojson }}
+            ]
+          },
+          axis: {
+            y: {
+              min:0,
+              label: { // ADD
+                text: 'Other Liabilities ($USD)',
+                position: 'outer-middle'
+              }
+            }, 
+            x: {
+              label: { // ADD
+                text: 'Year',
+                position: 'outer-center'
+              }
+            }
+          },
+          legend: {
+            show: false
+          }, 
+          color: {
+            pattern: ['#b10d21']
+          }
+          });
+            </script>
+          </div>
+        </div>
         </div> 
       </div>   
 
@@ -144,13 +366,10 @@
 
      </div><!-- /.container -->  
 
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
   </body>
 </html>
