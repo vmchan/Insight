@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  console.log('hello');
+  //console.log('hello');
 
   var npos = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
@@ -19,7 +19,7 @@ $(document).ready(function(){
    
   // kicks off the loading/processing of `local` and `prefetch`
   npos.initialize();
-  console.log(npos);
+  //console.log(npos);
 
   $('.tt-hint').addClass('form-control');
    
