@@ -24,8 +24,8 @@
     <link href="../static/css/c3.css" rel="stylesheet" type="text/css">
 
     <!-- Load d3.js and c3.js -->
-    <script src="../static/js/d3.min.js" charset="utf-8"></script>
-    <script src="../static/js/c3.min.js"></script>
+    <script src="../static/js/d3.js" charset="utf-8"></script>
+    <script src="../static/js/c3.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -83,16 +83,16 @@
      </div><!-- /.container -->
     <div class="container">
 
-      <div class="row">
+      <div class="row top-buffer">
         
         <div class="col-md-6">
-<h3 align="center"> <span style="color:#0db14b"> Total Revenue </spna></h3>
+        <h3 align="center"> <span style="color:#0db14b"> Total Revenue </spna></h3>
         <div id="chart5">
           <script type="text/javascript">
           var chart5 = c3.generate({
           bindto: '#chart5',
           size: {
-            height: 400,
+            height: 350,
             width: 550
           },
           data: {
@@ -105,15 +105,19 @@
           axis: {
             y: {
               min:0,
-              label: { // ADD
-                text: 'Total Revenue ($USD)',
+              label: { 
+                text: 'Total Revenue (USD)',
                 position: 'outer-middle'
-              }
+              }, 
+              tick: {
+                      format: function(d) { return "$" + d +'M'; }
+                    }
             }, 
             x: {
-              label: { // ADD
+              label: { 
                 text: 'Year',
-                position: 'outer-center'
+                position: 'outer-center',
+                //padding: {top: 200, bottom: 200}
               }
             }
           },
@@ -122,14 +126,14 @@
           }, 
           color: {
             pattern: ['#0db14b']
+          },
+          padding:{
+            top:10, 
+            bottom:10
           }
           });
           </script>
         </div>
-
-
-
-
        
         </div>
       
@@ -140,7 +144,7 @@
           var chart2 = c3.generate({
           bindto: '#chart2',
           size: {
-            height: 400,
+            height: 350,
             width: 550
           },
           data: {
@@ -154,9 +158,12 @@
             y: {
               min:0,
               label: { // ADD
-                text: 'Total Expenses ($USD)',
+                text: 'Total Expenses (USD)',
                 position: 'outer-middle'
-              }
+              }, 
+              tick: {
+                      format: function(d) { return "$" + d +'M'; }
+                    }
             }, 
             x: {
               label: { // ADD
@@ -170,6 +177,10 @@
           }, 
           color: {
             pattern: ['#b10d21']
+          },
+          padding:{
+            top:10, 
+            bottom:10
           }
           });
             </script>
@@ -177,7 +188,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row top-buffer">
         
         <div class="col-md-6">
           <h3 align="center"> <span style="color:#0db14b"> Government Grants </spna></h3>
@@ -186,7 +197,7 @@
           var chart3 = c3.generate({
           bindto: '#chart3',
           size: {
-            height: 400,
+            height: 350,
             width: 550
           },
           data: {
@@ -200,9 +211,12 @@
             y: {
               min:0,
               label: { // ADD
-                text: 'Government Grants ($USD)',
+                text: 'Government Grants (USD)',
                 position: 'outer-middle'
-              }
+              }, 
+              tick: {
+                      format: function(d) { return "$" + d +'M'; }
+                    }
             }, 
             x: {
               label: { // ADD
@@ -216,6 +230,10 @@
           }, 
           color: {
             pattern: ['#0db14b']
+          },
+          padding:{
+            top:10, 
+            bottom:10
           }
           });
           </script>
@@ -230,7 +248,7 @@
           var chart4 = c3.generate({
           bindto: '#chart4',
           size: {
-            height: 400,
+            height: 350,
             width: 550
           },
           data: {
@@ -244,9 +262,12 @@
             y: {
               min:0,
               label: { // ADD
-                text: 'Total Wages ($USD)',
+                text: 'Total Wages (USD)',
                 position: 'outer-middle'
-              }
+              }, 
+              tick: {
+                      format: function(d) { return "$" + d +'M'; }
+                    }
             }, 
             x: {
               label: { // ADD
@@ -260,6 +281,10 @@
           }, 
           color: {
             pattern: ['#b10d21']
+          },
+          padding:{
+            top:10, 
+            bottom:10
           }
           });
             </script>
@@ -269,7 +294,7 @@
       
       
 
-      <div class="row">
+      <div class="row top-buffer">
 
         <div class="col-md-6">
            <h3 align="center"> <span style="color:#0db14b"> Total Assets </spna></h3>
@@ -278,7 +303,7 @@
           var chart = c3.generate({
           bindto: '#chart',
           size: {
-            height: 400,
+            height: 350,
             width: 550
           },
           data: {
@@ -292,9 +317,12 @@
             y: {
               min:0,
               label: { // ADD
-                text: 'Total Assets ($USD)',
+                text: 'Total Assets (USD)',
                 position: 'outer-middle'
-              }
+              }, 
+              tick: {
+                      format: function(d) { return "$" + d +'M'; }
+                    }
             }, 
             x: {
               label: { // ADD
@@ -308,6 +336,10 @@
           }, 
           color: {
             pattern: ['#0db14b']
+          },
+          padding:{
+            top:10, 
+            bottom:10
           }
           });
           </script>
@@ -323,7 +355,7 @@
           var chart6 = c3.generate({
           bindto: '#chart6',
           size: {
-            height: 400,
+            height: 350,
             width: 550
           },
           data: {
@@ -337,9 +369,12 @@
             y: {
               min:0,
               label: { // ADD
-                text: 'Other Liabilities ($USD)',
+                text: 'Other Liabilities (USD)',
                 position: 'outer-middle'
-              }
+              }, 
+              tick: {
+                      format: function(d) { return "$" + d +'M'; }
+                    }
             }, 
             x: {
               label: { // ADD
@@ -353,6 +388,10 @@
           }, 
           color: {
             pattern: ['#b10d21']
+          },
+          padding:{
+            top:10, 
+            bottom:10
           }
           });
             </script>

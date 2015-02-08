@@ -17,22 +17,22 @@ def getResults(npo_data):
     years = [npo_data[i]['FYEAREND'] for i in range(len(npo_data))]
     years.insert(0, 'x')
     
-    assets_total = [npo_data[i]['ASSETS_TOTAL_EOY'] for i in range(len(npo_data))]
+    assets_total = [npo_data[i]['ASSETS_TOTAL_EOY']/1000000 for i in range(len(npo_data))]
     assets_total.insert(0, 'Total Assets')
     
-    expenses_total = [npo_data[i]['EXPENSES_TOTAL'] for i in range(len(npo_data))]
+    expenses_total = [npo_data[i]['EXPENSES_TOTAL']/1000000 for i in range(len(npo_data))]
     expenses_total.insert(0, ' Total Expenses')
     
-    gov_grants = [npo_data[i]['GOV_GRANTS'] for i in range(len(npo_data))]
+    gov_grants = [npo_data[i]['GOV_GRANTS']/1000000 for i in range(len(npo_data))]
     gov_grants.insert(0, 'Government Grants')
     
-    revenue_total = [npo_data[i]['REVENUE_TOTAL'] for i in range(len(npo_data))]
+    revenue_total = [npo_data[i]['REVENUE_TOTAL']/1000000 for i in range(len(npo_data))]
     revenue_total.insert(0, 'Total Revenue')
     
-    other_liability = [npo_data[i]['LIABILITY_OTHER_EOY'] for i in range(len(npo_data))]
+    other_liability = [npo_data[i]['LIABILITY_OTHER_EOY']/1000000 for i in range(len(npo_data))]
     other_liability.insert(0, 'Other Liabilities')
 
-    wages_total = [npo_data[i]['WAGES_TOTAL'] for i in range(len(npo_data))]
+    wages_total = [npo_data[i]['WAGES_TOTAL']/1000000 for i in range(len(npo_data))]
     wages_total.insert(0, 'Total Wages')
 
     # fig = plt.figure() 

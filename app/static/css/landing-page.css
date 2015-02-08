@@ -169,3 +169,8 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+
+.top-buffer { 
+    margin-top:20px;
+    padding-bottom:15px; 
+}
