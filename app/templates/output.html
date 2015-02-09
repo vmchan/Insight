@@ -23,10 +23,6 @@
     <!-- Load c3.css -->
     <link href="../static/css/c3.css" rel="stylesheet" type="text/css">
 
-    <!-- Load d3.js and c3.js -->
-    <script src="../static/js/d3.js" charset="utf-8"></script>
-    <script src="../static/js/c3.js"></script>
-
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -86,323 +82,48 @@
       <div class="row top-buffer">
         
         <div class="col-md-6">
-        <h3 align="center"> <span style="color:#0db14b"> Total Revenue </spna></h3>
-        <div id="chart5">
-          <script type="text/javascript">
-          var chart5 = c3.generate({
-          bindto: '#chart5',
-          size: {
-            height: 350,
-            width: 550
-          },
-          data: {
-            x: 'x',
-            columns: [
-              {{ years|tojson }},
-              {{ revenue_total|tojson }}
-            ]
-          },
-          axis: {
-            y: {
-              min:0,
-              label: { 
-                text: 'Total Revenue (USD)',
-                position: 'outer-middle'
-              }, 
-              tick: {
-                      format: function(d) { return "$" + d +'M'; }
-                    }
-            }, 
-            x: {
-              label: { 
-                text: 'Year',
-                position: 'outer-center',
-                //padding: {top: 200, bottom: 200}
-              }
-            }
-          },
-          legend: {
-            show: false
-          }, 
-          color: {
-            pattern: ['#0db14b']
-          },
-          padding:{
-            top:10, 
-            bottom:10
-          }
-          });
-          </script>
-        </div>
-       
+          <h3 align="center"> <span style="color:#0db14b"> Total Revenue </spna></h3>
+          <div id="chart5"></div>
         </div>
       
         <div class="col-md-6">
-        <h3 align="center"> <span style="color:#b10d21">Total Expenses </span></h3>
-        <div id="chart2">
-          <script type="text/javascript">
-          var chart2 = c3.generate({
-          bindto: '#chart2',
-          size: {
-            height: 350,
-            width: 550
-          },
-          data: {
-            x: 'x',
-            columns: [
-              {{ years|tojson }},
-              {{ expenses_total|tojson }}
-            ]
-          },
-          axis: {
-            y: {
-              min:0,
-              label: { // ADD
-                text: 'Total Expenses (USD)',
-                position: 'outer-middle'
-              }, 
-              tick: {
-                      format: function(d) { return "$" + d +'M'; }
-                    }
-            }, 
-            x: {
-              label: { // ADD
-                text: 'Year',
-                position: 'outer-center'
-              }
-            }
-          },
-          legend: {
-            show: false
-          }, 
-          color: {
-            pattern: ['#b10d21']
-          },
-          padding:{
-            top:10, 
-            bottom:10
-          }
-          });
-            </script>
-          </div>
+          <h3 align="center"> <span style="color:#b10d21">Total Expenses </span></h3>
+          <div id="chart2"> </div>
         </div>
+
       </div>
 
       <div class="row top-buffer">
         
         <div class="col-md-6">
           <h3 align="center"> <span style="color:#0db14b"> Government Grants </spna></h3>
-          <div id="chart3">
-          <script type="text/javascript">
-          var chart3 = c3.generate({
-          bindto: '#chart3',
-          size: {
-            height: 350,
-            width: 550
-          },
-          data: {
-            x: 'x',
-            columns: [
-              {{ years|tojson }},
-              {{ gov_grants|tojson }}
-            ]
-          },
-          axis: {
-            y: {
-              min:0,
-              label: { // ADD
-                text: 'Government Grants (USD)',
-                position: 'outer-middle'
-              }, 
-              tick: {
-                      format: function(d) { return "$" + d +'M'; }
-                    }
-            }, 
-            x: {
-              label: { // ADD
-                text: 'Year',
-                position: 'outer-center'
-              }
-            }
-          },
-          legend: {
-            show: false
-          }, 
-          color: {
-            pattern: ['#0db14b']
-          },
-          padding:{
-            top:10, 
-            bottom:10
-          }
-          });
-          </script>
-          </div>
+          <div id="chart3"></div>
         </div> 
 
 
         <div class="col-md-6">
-            <h3 align="center"> <span style="color:#b10d21">Total Wages </span></h3>
-        <div id="chart4">
-          <script type="text/javascript">
-          var chart4 = c3.generate({
-          bindto: '#chart4',
-          size: {
-            height: 350,
-            width: 550
-          },
-          data: {
-            x: 'x',
-            columns: [
-              {{ years|tojson }},
-              {{ wages_total|tojson }}
-            ]
-          },
-          axis: {
-            y: {
-              min:0,
-              label: { // ADD
-                text: 'Total Wages (USD)',
-                position: 'outer-middle'
-              }, 
-              tick: {
-                      format: function(d) { return "$" + d +'M'; }
-                    }
-            }, 
-            x: {
-              label: { // ADD
-                text: 'Year',
-                position: 'outer-center'
-              }
-            }
-          },
-          legend: {
-            show: false
-          }, 
-          color: {
-            pattern: ['#b10d21']
-          },
-          padding:{
-            top:10, 
-            bottom:10
-          }
-          });
-            </script>
-          </div>
+          <h3 align="center"> <span style="color:#b10d21">Total Wages </span></h3>
+          <div id="chart4"></div>
         </div>
-        </div> 
-      
-      
 
+      </div> 
+      
       <div class="row top-buffer">
 
         <div class="col-md-6">
-           <h3 align="center"> <span style="color:#0db14b"> Total Assets </spna></h3>
-        <div id="chart">
-          <script type="text/javascript">
-          var chart = c3.generate({
-          bindto: '#chart',
-          size: {
-            height: 350,
-            width: 550
-          },
-          data: {
-            x: 'x',
-            columns: [
-              {{ years|tojson }},
-              {{ assets_total|tojson }}
-            ]
-          },
-          axis: {
-            y: {
-              min:0,
-              label: { // ADD
-                text: 'Total Assets (USD)',
-                position: 'outer-middle'
-              }, 
-              tick: {
-                      format: function(d) { return "$" + d +'M'; }
-                    }
-            }, 
-            x: {
-              label: { // ADD
-                text: 'Year',
-                position: 'outer-center'
-              }
-            }
-          },
-          legend: {
-            show: false
-          }, 
-          color: {
-            pattern: ['#0db14b']
-          },
-          padding:{
-            top:10, 
-            bottom:10
-          }
-          });
-          </script>
-        </div>
-          
+          <h3 align="center"> <span style="color:#0db14b"> Total Assets </spna></h3>
+          <div id="chart"></div>
         </div> 
        
       
         <div class="col-md-6">
           <h3 align="center"> <span style="color:#b10d21">Other Liabilities </span></h3>
-        <div id="chart6">
-          <script type="text/javascript">
-          var chart6 = c3.generate({
-          bindto: '#chart6',
-          size: {
-            height: 350,
-            width: 550
-          },
-          data: {
-            x: 'x',
-            columns: [
-              {{ years|tojson }},
-              {{ other_liability|tojson }}
-            ]
-          },
-          axis: {
-            y: {
-              min:0,
-              label: { // ADD
-                text: 'Other Liabilities (USD)',
-                position: 'outer-middle'
-              }, 
-              tick: {
-                      format: function(d) { return "$" + d +'M'; }
-                    }
-            }, 
-            x: {
-              label: { // ADD
-                text: 'Year',
-                position: 'outer-center'
-              }
-            }
-          },
-          legend: {
-            show: false
-          }, 
-          color: {
-            pattern: ['#b10d21']
-          },
-          padding:{
-            top:10, 
-            bottom:10
-          }
-          });
-            </script>
-          </div>
+          <div id="chart6"></div>
         </div>
-        </div>
-        <!-- Force the screen to resize, so all my c3 will actually show up. -->
-        <script type="text/javascript">
-        $(window).trigger('resize');
-         </script>
-      </div>   
+     
+      </div>
+    
+    </div>   
 
 
        <!-- Footer -->
@@ -429,15 +150,24 @@
         </div>
     </footer>
 
-      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-      <script src="static/js/bootstrap.min.js"></script>
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="application/javascript"></script>
+      <script src="static/js/bootstrap.min.js" type="application/javascript"></script>
+
+      <!-- Load d3.js and c3.js -->
+      <script src="../static/js/d3.js" charset="utf-8" type="application/javascript"></script>
+      <script src="../static/js/c3.js" type="application/javascript"></script>
+
+      <script id="yearsdata" type="application/json">{{ years|tojson }}</script>
+      <script id="chart5data" type="application/json">{{ revenue_total|tojson }}</script>
+      <script id="chart2data" type="application/json">{{ expenses_total|tojson }}</script>
+      <script id="chart3data" type="application/json">{{ gov_grants|tojson }}</script>
+      <script id="chart4data" type="application/json">{{ wages_total|tojson }}</script>
+      <script id="chartdata" type="application/json">{{ assets_total|tojson }}</script>
+      <script id="chart6data" type="application/json">{{ other_liability|tojson }}</script>
+
+      <script src="../static/js/charts.js" type="application/javascript"></script>
 
      </div><!-- /.container -->  
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    
   </body>
 </html>
