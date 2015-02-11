@@ -5,11 +5,7 @@ import pandas as pd
 import pymysql as mdb
 from json import dumps
 
-<<<<<<< HEAD
 conxn = mdb.connect('localhost', 'root', 'passw0rd', 'alldata') #host, user, password, #database
-=======
-
->>>>>>> 2031d6ad72a7abe504408fb4da2b8ec6d6a36210
 
 @app.route('/')
 @app.route('/index')
