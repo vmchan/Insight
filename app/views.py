@@ -5,7 +5,11 @@ import pandas as pd
 import pymysql as mdb
 from json import dumps
 
+<<<<<<< HEAD
 conxn = mdb.connect('localhost', 'root', 'passw0rd', 'alldata') #host, user, password, #database
+=======
+
+>>>>>>> 2031d6ad72a7abe504408fb4da2b8ec6d6a36210
 
 @app.route('/')
 @app.route('/index')
@@ -25,6 +29,7 @@ def output():
     #pull "ID" from input field and store it
     npoid = request.args.get('ID', type = int)
 
+    conxn = mdb.connect('localhost', 'root', '', 'alldata') #host, user, password, #database
     with conxn:
         cur = conxn.cursor(mdb.cursors.DictCursor) 
         cur.execute("SELECT logregresult.SCORE, alldata.FYEAREND, alldata.GOV_GRANTS, alldata.SERVICE_REVENUE, alldata.REVENUE_TOTAL, \
@@ -33,6 +38,8 @@ def output():
 
     results = cur.fetchall()
 
+    conxn.close()
+
     if not results:
         #flash('Sorry, NPO %s does not have data in the current year yet. Please enter a new NPO ID.')
         return redirect('/index')
@@ -40,6 +47,7 @@ def output():
         score = getScore(results)
         years, assets_total, expenses_total, gov_grants, revenue_total, other_liability, wages_total = getResults(results)
         return render_template("output.html", npoid = npoid, score = score, years=years, assets_total=assets_total, expenses_total=expenses_total, gov_grants=gov_grants, revenue_total=revenue_total, other_liability=other_liability, wages_total=wages_total)
+    
 
 @app.route('/mapimages/<path:filename>')
 def return_image (filename):
@@ -49,9 +57,11 @@ def return_image (filename):
 
 @app.route('/data/npos')
 def npos_ids():
+    conxn = mdb.connect('localhost', 'root', '', 'alldata') #host, user, password, #database
     with conxn:
         cur = conxn.cursor(mdb.cursors.DictCursor) 
         cur.execute("SELECT NPO_ID from logregresult") 
     results = cur.fetchall()
+    conxn.close()
 
     return dumps([int(r['NPO_ID']) for r in results])
