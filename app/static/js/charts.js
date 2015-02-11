@@ -267,5 +267,5 @@
       bottom:10
     }
     });
-
+$(window).resize();
  });
