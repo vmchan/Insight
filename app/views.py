@@ -16,9 +16,9 @@ def index():
 def contact():
     return render_template("contact.html")
   
-@app.route('/about')
+@app.route('/slides')
 def about():
-    return render_template("about.html")
+    return render_template("slides.html")
 
 @app.route('/output')
 def output():
