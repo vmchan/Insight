@@ -5,8 +5,6 @@ import pandas as pd
 import pymysql as mdb
 from json import dumps
 
-conxn = mdb.connect('localhost', 'root', 'passw0rd', 'alldata') #host, user, password, #database
-
 @app.route('/')
 @app.route('/index')
 def index():
@@ -25,7 +23,7 @@ def output():
     #pull "ID" from input field and store it
     npoid = request.args.get('ID', type = int)
 
-    conxn = mdb.connect('localhost', 'root', '', 'alldata') #host, user, password, #database
+    conxn = mdb.connect('localhost', 'root', 'passw0rd', 'alldata') #host, user, password, #database
     with conxn:
         cur = conxn.cursor(mdb.cursors.DictCursor) 
         cur.execute("SELECT logregresult.SCORE, alldata.FYEAREND, alldata.GOV_GRANTS, alldata.SERVICE_REVENUE, alldata.REVENUE_TOTAL, \
@@ -53,7 +51,7 @@ def return_image (filename):
 
 @app.route('/data/npos')
 def npos_ids():
-    conxn = mdb.connect('localhost', 'root', '', 'alldata') #host, user, password, #database
+    conxn = mdb.connect('localhost', 'root', 'passw0rd', 'alldata') #host, user, password, #database
     with conxn:
         cur = conxn.cursor(mdb.cursors.DictCursor) 
         cur.execute("SELECT NPO_ID from logregresult") 
