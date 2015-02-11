@@ -5,7 +5,7 @@ import pandas as pd
 import pymysql as mdb
 from json import dumps
 
-conxn = mdb.connect('localhost', 'root', '', 'alldata') #host, user, password, #database
+conxn = mdb.connect('localhost', 'root', 'passw0rd', 'alldata') #host, user, password, #database
 
 @app.route('/')
 @app.route('/index')
@@ -16,9 +16,9 @@ def index():
 def contact():
     return render_template("contact.html")
   
-@app.route('/about')
+@app.route('/slides')
 def about():
-    return render_template("about.html")
+    return render_template("slides.html")
 
 @app.route('/output')
 def output():
